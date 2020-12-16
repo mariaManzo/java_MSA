@@ -36,41 +36,6 @@ public class PersonnageController
         return "index";
     }
 
-    //Personnage/{id}
-    @GetMapping(value ="Personnage/{id}")
-    public Personnage findById(@PathVariable int id, Model model)
-    {
-        //Personnage personnage = new Personnage ( id, new String ("Gerard"),new String("Guerrier") );
-        //return personnage;
-        RestTemplate restTemplate = new RestTemplate();
-
-        // On créé un tableau vide pour récupérer le résultat du serveur
-        Personnage resultat ;
-        // On appelle "Personnage/List" sur le serveur, et on range le résultat dans le tableau qu'on avait prévu
-        resultat = restTemplate.getForObject("http://localhost:8081/Personnage/"+id, Personnage.class);
-        model.addAttribute("persons", resultat);
-        return resultat;
-        //return listPersonnages.get(id);
-    }
-
-    //tous les personnages
-    //Personnage/list
-    @GetMapping(value ="personList")
-    public ArrayList<Personnage> afficherListePersonnages(Model model)
-    {
-        RestTemplate restTemplate = new RestTemplate();
-
-        // On créé un tableau vide pour récupérer le résultat du serveur
-        ArrayList<Personnage> resultat ;
-        // On appelle "Personnage/List" sur le serveur, et on range le résultat dans le tableau qu'on avait prévu
-        resultat = restTemplate.getForObject("http://localhost:8081/Personnage/list", ArrayList.class);
-
-        //model.addAttribute("persons", listPersonnages);
-        model.addAttribute("persons", resultat);
-
-        //return listPersonnages;
-        return resultat;
-    }
 
     @RequestMapping(value = { "/addPerson" }, method = RequestMethod.GET)
     public String showAddPersonPage(Model model) {

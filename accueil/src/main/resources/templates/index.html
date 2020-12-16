@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <title>Welcome</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
 </head>
 <body>
-<h1>Welcome</h1>
+<div class="container">
+<h1>Donjons et dragons</h1>
 <h2 th:utext="${message}">..!..</h2>
 
 <!--
@@ -18,7 +23,7 @@
    -->
 
 <a th:href="@{/addPerson}">Creer un personnage</a>
-
+</div>
 </body>
 
 </html>

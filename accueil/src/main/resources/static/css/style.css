@@ -13,3 +13,9 @@ table {
 table th, table td {
     padding: 5px;
 }
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
