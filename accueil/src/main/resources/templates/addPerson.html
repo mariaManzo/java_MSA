@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <title>Add Person</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
 </head>
 <body>
-<h1>Create a Person:</h1>
+<div class="container">
+<h1>Creer un personnage:</h1>
 
 <!--
    In Thymeleaf the equivalent of
@@ -16,11 +21,11 @@
 
 <form th:action="@{/addPerson}"
       th:object="${personForm}" method="POST">
-    First Name:
-    <input type="text" th:field="*{firstName}" />
+    Nom :
+    <input type="text" th:field="*{nom}" />
     <br/>
-    Last Name:
-    <input type="text" th:field="*{lastName}" />
+    Type :
+    <input type="text" th:field="*{type}" />
     <br/>
     <input type="submit" value="Create" />
 </form>
@@ -33,6 +38,6 @@
      style="color:red;font-style:italic;">
     ...
 </div>
-
+</div>
 </body>
 </html>
