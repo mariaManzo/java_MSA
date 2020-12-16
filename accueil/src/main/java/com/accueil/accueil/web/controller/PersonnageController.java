@@ -2,6 +2,7 @@ package com.accueil.accueil.web.controller;
 
 import com.accueil.accueil.form.PersonnageForm;
 import com.accueil.accueil.model.Personnage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,8 +16,11 @@ import java.util.ArrayList;
 @Controller
 public class PersonnageController
 {
+    @Autowired
+    private RestTemplate restTemplate;
+
     // Membres
-    private static ArrayList<Personnage> listPersonnages = new ArrayList<Personnage>();
+    //private static ArrayList<Personnage> listPersonnages = new ArrayList<Personnage>();
 
 
     // Injectez (inject) via application.properties.
@@ -57,11 +61,10 @@ public class PersonnageController
         if (nom != null && nom.length() > 0 //
                 && type != null && type.length() > 0) {
 
-            // TODO : enlever la main sur l'id, et calculer un nouvel id
-            Personnage newPersonnage = new Personnage(id, nom, type);
-            listPersonnages.add(newPersonnage);
+            Personnage personnage = new Personnage(id, nom, type);
+            restTemplate.postForObject("http://localhost:8081/Personnages", personnage, Personnage.class);
 
-            return "redirect:/personList";
+            return "redirect:/start";
         }
 
         model.addAttribute("errorMessage", errorMessage);
