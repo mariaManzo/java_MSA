@@ -2,13 +2,21 @@ package com.accueil.accueil.model;
 
 public class Personnage {
     private int id;
-    private String nom;
+    private String name;
     private String type;
+    protected String weapon;
+    protected String potion;
+    protected int attack_points;
+    protected int life_points;
 
-    public Personnage(int id, String nom, String type) {
+    public Personnage(int id, String name, String type, String weapon, String potion, int attack_points, int life_points) {
         this.id = id;
-        this.nom = nom;
+        this.name = name;
         this.type = type;
+        this.weapon = weapon;
+        this.potion = potion;
+        this.attack_points = attack_points;
+        this.life_points = life_points;
     }
 
     public int getId() {
@@ -19,12 +27,12 @@ public class Personnage {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getType() {
@@ -35,13 +43,36 @@ public class Personnage {
         this.type = type;
     }
 
-    @Override
-    public String toString() {
-        return "Personnage{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", type='" + type + '\'' +
-                '}';
+    public String getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(String weapon) {
+        this.weapon = weapon;
+    }
+
+    public String getPotion() {
+        return potion;
+    }
+
+    public void setPotion(String potion) {
+        this.potion = potion;
+    }
+
+    public int getAttack_points() {
+        return attack_points;
+    }
+
+    public void setAttack_points(int attack_points) {
+        this.attack_points = attack_points;
+    }
+
+    public int getLife_points() {
+        return life_points;
+    }
+
+    public void setLife_points(int life_points) {
+        this.life_points = life_points;
     }
 }
 
