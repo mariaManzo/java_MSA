@@ -14,8 +14,35 @@ table th, table td {
     padding: 5px;
 }
 
+.link{
+    color: darkslategray;
+}
+
 .container{
+    margin: 100px;
     display: flex;
     flex-direction: column;
     align-content: center;
+}
+
+.form
+{
+    margin: 30px;
+}
+
+.nom{
+    margin: 10px;
+}
+
+.type{
+    margin: 10px;
+}
+
+.button{
+    background-color: darkslategray;
+    color: antiquewhite;
+    height: 30px;
+    width: 100px;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
 }
