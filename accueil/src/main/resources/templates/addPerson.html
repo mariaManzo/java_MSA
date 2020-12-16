@@ -22,10 +22,22 @@
 <form th:action="@{/addPerson}"
       th:object="${personForm}" method="POST">
     Nom :
-    <input class="nom" type="text" th:field="*{nom}" />
+    <input class="name" type="text" th:field="*{name}" />
     <br/>
     Type :
     <input class="type" type="text" th:field="*{type}" />
+    <br/>
+    Arme :
+    <input class="name" type="text" th:field="*{weapon}" />
+    <br/>
+    Potion :
+    <input class="type" type="text" th:field="*{potion}" />
+    <br/>
+    Points d'attaque :
+    <input class="name" type="text" th:field="*{attack_points}" />
+    <br/>
+    Points de vie :
+    <input class="type" type="text" th:field="*{life_points}" />
     <br/>
     <button class="button" type="submit" value="Créer">Créer</button>
 </form>

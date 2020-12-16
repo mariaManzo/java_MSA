@@ -9,8 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-
 
 
 @Controller
@@ -26,6 +24,9 @@ public class PersonnageController
     // Injectez (inject) via application.properties.
     @Value("${welcome.message}")
     private String message;
+
+    @Value("${uriPlayer}")
+    private String uriPlayer;
 
     @Value("${error.message}")
     private String errorMessage;
@@ -55,43 +56,23 @@ public class PersonnageController
                                  @ModelAttribute("personForm") PersonnageForm personnageForm) {
 
         int id = personnageForm.getId();
-        String nom = personnageForm.getNom();
+        String name = personnageForm.getName();
         String type = personnageForm.getType();
 
-        if (nom != null && nom.length() > 0 //
+        if (name != null && name.length() > 0 //
                 && type != null && type.length() > 0) {
 
-            Personnage personnage = new Personnage(id, nom, type);
-            restTemplate.postForObject("http://localhost:8081/Personnages", personnage, Personnage.class);
+            restTemplate.postForObject(uriPlayer+"add", personnageForm, Personnage.class);
 
-            return "redirect:/start";
+            return "board";
         }
 
         model.addAttribute("errorMessage", errorMessage);
         return "addPerson";
+
+
     }
 
-
-
-    /*
-    //Personnages en post qui sert à ajouter un personnage
-    @PostMapping(value = "Personnage/list")
-    public void creerPersonnage( @RequestBody Personnage personnage)
-    {
-        listPersonnages.add(personnage);
-    }
-
-    @PutMapping(value = "Personnage/modifier/{id}")
-    public void modifierPersonnage( @RequestBody Personnage personnage, @PathVariable int id)
-    {
-        listPersonnages.set(id, personnage);
-    }
-
-    @DeleteMapping(value= "Personnage/supprimer/{id}")
-    public void supprimerPersonnage(@PathVariable int id)
-    {
-        listPersonnages.remove(id);
-    }*/
 
 }
 

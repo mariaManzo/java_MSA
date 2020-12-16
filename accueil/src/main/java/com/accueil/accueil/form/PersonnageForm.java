@@ -3,8 +3,45 @@ package com.accueil.accueil.form;
 public class PersonnageForm {
 
     private int id;
-    private String nom;
+    private String name;
     private String type;
+    protected String weapon;
+    protected String potion;
+    protected int attack_points;
+    protected int life_points;
+
+
+    public String getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(String weapon) {
+        this.weapon = weapon;
+    }
+
+    public String getPotion() {
+        return potion;
+    }
+
+    public void setPotion(String potion) {
+        this.potion = potion;
+    }
+
+    public int getAttack_points() {
+        return attack_points;
+    }
+
+    public void setAttack_points(int attack_points) {
+        this.attack_points = attack_points;
+    }
+
+    public int getLife_points() {
+        return life_points;
+    }
+
+    public void setLife_points(int life_points) {
+        this.life_points = life_points;
+    }
 
     public int getId() {
         return id;
@@ -14,12 +51,12 @@ public class PersonnageForm {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getType() {

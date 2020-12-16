@@ -9,27 +9,27 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path="/demo")
+@RequestMapping(path="/players")
 public class PlayerController {
     @Autowired
     private PlayerRepository playerRepository;
 
-    @PostMapping(path="/add")
-    public String addNewPersonnage (@RequestBody Player personnage) {
+    @PostMapping(path="/add", consumes = "application/json", produces="application/json")
+    public Player addNewPersonnage (@RequestBody Player personnage) {
         Player p=personnage;
-        if(p.getType()=="Guerrier") {
-            p.setWeapon("");
-            p.setPotion("");
-            p.setAttack_points(5);
-            p.setLife_points(5);
-        } else {
-            p.setWeapon("");
-            p.setPotion("");
-            p.setAttack_points(8);
-            p.setLife_points(4);
-        }
-        playerRepository.save(p);
-        return "Saved";
+//        if(p.getType()=="Guerrier") {
+//            p.setWeapon("");
+//            p.setPotion("");
+//            p.setAttack_points(5);
+//            p.setLife_points(5);
+//        } else {
+//            p.setWeapon("");
+//            p.setPotion("");
+//            p.setAttack_points(8);
+//            p.setLife_points(4);
+//        }
+        return playerRepository.save(p);
+        //return "Saved";
     }
 
     @GetMapping(path="/all")
