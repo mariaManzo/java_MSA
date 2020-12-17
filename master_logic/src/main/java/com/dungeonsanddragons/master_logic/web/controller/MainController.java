@@ -1,25 +1,47 @@
 package com.dungeonsanddragons.master_logic.web.controller;
 
-import io.swagger.annotations.ApiOperation;
+import com.dungeonsanddragons.master_logic.web.model.Player;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
 
 @Controller
 public class MainController {
 
+    @Autowired
+    private final PlayerController playerController = new PlayerController();
 
-//    public deroulement() {
-//
-//    }
+    @RequestMapping(value = {"/round"}, method = RequestMethod.GET)
+    public Player round(@RequestParam int player_id) {
+//        lance les dés
+        int dices = this.launchDice();
 
-//    public launchDice() {
-//
-//    }
-//
-//    public avancer() {
-//
-//    }
+//        avance la position du personnage (case_courante_id) avec le résultat des dés
+        return this.step_forward(player_id, dices);
+    }
+
+    public int launchDice() {
+        int dices =  1 + (int) (Math.random() * 12);
+        System.out.println(dices);
+        return dices;
+//        return 1 + (int) (Math.random() * 12);
+    }
+
+    public Player step_forward(int player_id, int dices) {
+//        Recupere perso
+        Player player = playerController.getPlayer(player_id);
+        System.out.println(player);
+//        Modifie attribut case_courante_id += dices
+        player.setCurrent_square_id(player.getCurrent_square_id() + dices);
+//        update (modifie et recupere perso)
+//        Player player2 = playerController.updatePlayer(player);
+//        System.out.println(player2);
+//        return player2;
+//        return playerController.updatePlayer(player);
+        return player;
+    }
 }

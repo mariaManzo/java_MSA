@@ -38,7 +38,7 @@ public class PlayerController {
         return playerRepository.findAll();
     }
 
-    @GetMapping(path="/all/{id}")
+    @GetMapping(path="/{id}")
     public Optional<Player> getPersonnage(@PathVariable int id) {
        Optional<Player> personnage= playerRepository.findById(id);
        return personnage;
