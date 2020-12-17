@@ -72,3 +72,8 @@ table th, table td {
 .text-plateau{
     text-align: center;
 }
+
+.launch_dice{
+    display:flex;
+    text-align: center;
+}

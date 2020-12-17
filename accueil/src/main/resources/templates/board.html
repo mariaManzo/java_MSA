@@ -29,8 +29,36 @@
                 <div th:case="Dragon" style="background-color: darkred"><span>&nbsp;&nbsp;</span></div>
                 <div th:case="Fire" style="background-color: orange"><span>&nbsp;&nbsp;</span></div>
                 <div th:case="*"></div>
-
         </tr>
+
+        <input type="button" value="Lancer dés" id="buttonDice"/>
+
+
+        <script>
+            let btn = document.getElementById('buttonDice');
+            btn.addEventListener('click', lancerDes);
+
+            function lancerDes() {
+                // On renvoie un entier aléatoire entre une valeur min (incluse)
+                // et une valeur max (exclue).
+                // Attention : si on utilisait Math.round(), on aurait une distribution
+                // non uniforme !
+                let min = Math.ceil(1);
+                let max = Math.floor(13);
+                let resultat = Math.floor(Math.random() * (max - min)) + min;
+                //console.log('On a tire' +resultat);
+
+                let affichageResultat = document.getElementById("affichageResultat");
+                if (affichageResultat == null)
+                {
+                    affichageResultat = document.createElement("P");
+                    affichageResultat.id = "affichageResultat" ;
+                    document.body.appendChild(affichageResultat);
+                }
+                affichageResultat.innerText = "On a tiré " + resultat ;
+            }
+        </script>
+
         </tbody>
     </table>
 </div>
