@@ -1,6 +1,6 @@
-package com.accueil.accueil.form;
+package com.dungeonsanddragons.master_logic.web.model;
 
-public class PersonnageForm {
+public class Player {
 
     private int id;
     private String name;
@@ -11,6 +11,44 @@ public class PersonnageForm {
     protected int life_points;
     protected int current_square_id;
 
+    public Player(int id, String name, String type, String weapon, String potion, int attack_points, int life_points, int current_square_id) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.weapon = weapon;
+        this.potion = potion;
+        this.attack_points = attack_points;
+        this.life_points = life_points;
+        this.current_square_id=current_square_id;
+    }
+
+    public Player(int id){
+        this.id = id;
+    };
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getWeapon() {
         return weapon;
@@ -44,30 +82,6 @@ public class PersonnageForm {
         this.life_points = life_points;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public int getCurrent_square_id() {
         return current_square_id;
     }
@@ -76,3 +90,4 @@ public class PersonnageForm {
         this.current_square_id = current_square_id;
     }
 }
+

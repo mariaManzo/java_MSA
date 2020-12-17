@@ -38,16 +38,15 @@ public class PlayerController {
         return playerRepository.findAll();
     }
 
-    @GetMapping(path="/all/{id}")
+    @GetMapping(path="/{id}")
     public Optional<Player> getPersonnage(@PathVariable int id) {
        Optional<Player> personnage= playerRepository.findById(id);
        return personnage;
     }
 
-    @PutMapping(path="/update")
-    public String updatePersonnage(@RequestBody Player personnage) {
-        playerRepository.save(personnage);
-        return "Updated";
+    @PatchMapping(path="/update", produces="application/json")
+    public Player updatePersonnage(@RequestBody Player personnage) {
+        return playerRepository.save(personnage);
     }
 
     @DeleteMapping (path="/delete/{id}")

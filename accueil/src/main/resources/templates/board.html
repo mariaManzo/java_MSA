@@ -62,5 +62,33 @@
         </tbody>
     </table>
 </div>
+<div class="containeur">
+
+    <div class="div-legende">
+<h3 style="margin-left: 20px">Légende :</h3>
+    <div th:class="legende-square" style="background-color: aquamarine; margin-left: 30px; height: 30px;width: 30px;"><span>&nbsp;&nbsp;</span><div style="margin-left: 30px" th:utext="Eclair"></div></div>
+    <div th:class="legende-square" style="background-color: saddlebrown; margin-left: 30px; height: 30px;width: 30px;"><span>&nbsp;&nbsp;</span><div style="margin-left: 30px" th:utext="Massue"></div></div>
+    <div th:class="legende-square" style="background-color: rosybrown; margin-left: 30px; height: 30px;width: 30px;"><span>&nbsp;&nbsp;</span><div style="margin-left: 30px" th:utext="Gobelin"></div></div>
+    <div th:class="legende-square" style="background-color: blueviolet; margin-left: 30px; height: 30px;width: 30px;"><span>&nbsp;&nbsp;</span><div style="margin-left: 30px" th:utext="Potion_Standard "></div></div>
+    <div th:class="legende-square" style="background-color: whitesmoke; margin-left: 30px; height: 30px;width: 30px;"><span>&nbsp;&nbsp;</span><div style="margin-left: 30px" th:utext="Vide"></div></div>
+    <div th:class="legende-square" style="background-color: silver; margin-left: 30px; height: 30px;width: 30px;"><span>&nbsp;&nbsp;</span><div style="margin-left: 30px" th:utext="Epee"></div></div>
+    <div th:class="legende-square" style="background-color: black; margin-left: 30px; height: 30px;width: 30px;"><span>&nbsp;&nbsp;</span><div style="margin-left: 30px" th:utext="Sorcier"></div></div>
+    <div th:class="legende-square" style="background-color: purple; margin-left: 30px; height: 30px;width: 30px;"><span>&nbsp;&nbsp;</span><div style="margin-left: 30px" th:utext="Grosse_Potion"></div></div>
+    <div th:class="legende-square" style="background-color: darkred; margin-left: 30px; height: 30px;width: 30px;"><span>&nbsp;&nbsp;</span><div style="margin-left: 30px" th:utext="Dragon"></div></div>
+    <div th:class="legende-square" style="background-color: orange; margin-left: 30px; height: 30px;width: 30px;"><span>&nbsp;&nbsp;</span><div style="margin-left: 30px" th:utext="Feu"></div></div>
+</div>
+
+    <div th:each="personnage : ${personnages}">
+        <div  class="div-personnage" th:if="${#lists.size(personnages)-1}==${personnage.id}">
+            <h2 style="padding-top: 80px; text-align: center;" >Votre personnage :</h2>
+            <div style="text-align: center; padding-top: 10px;" th:utext="NOM +'   '+ ${personnage.name}"></div>
+            <div style="text-align: center; padding-top: 5px;" th:utext="TYPE +'   '+ ${personnage.type}"></div>
+            <div style="text-align: center; padding-top: 5px;" th:utext="ARME +'   '+ ${personnage.weapon}"></div>
+            <div style="text-align: center; padding-top: 5px;" th:utext="POTION +'   '+ ${personnage.potion}"></div>
+            <div style="text-align: center; padding-top: 5px;" th:utext="POINTS_DE_VIE +'   '+ ${personnage.life_points}"></div>
+            <div style="text-align: center; padding-top: 5px;" th:utext="POINTS_D_ATTAQUE +'   '+ ${personnage.attack_points}"></div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

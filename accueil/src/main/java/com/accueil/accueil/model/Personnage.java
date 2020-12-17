@@ -8,8 +8,9 @@ public class Personnage {
     protected String potion;
     protected int attack_points;
     protected int life_points;
+    protected int current_square_id;
 
-    public Personnage(int id, String name, String type, String weapon, String potion, int attack_points, int life_points) {
+    public Personnage(int id, String name, String type, String weapon, String potion, int attack_points, int life_points, int current_square_id) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -17,6 +18,7 @@ public class Personnage {
         this.potion = potion;
         this.attack_points = attack_points;
         this.life_points = life_points;
+        this.current_square_id=current_square_id;
     }
 
     public int getId() {
@@ -73,6 +75,14 @@ public class Personnage {
 
     public void setLife_points(int life_points) {
         this.life_points = life_points;
+    }
+
+    public int getCurrent_square_id() {
+        return current_square_id;
+    }
+
+    public void setCurrent_square_id(int current_square_id) {
+        this.current_square_id = current_square_id;
     }
 }
 

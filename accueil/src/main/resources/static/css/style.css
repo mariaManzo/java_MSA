@@ -73,7 +73,31 @@ table th, table td {
     text-align: center;
 }
 
+
 .launch_dice{
     display:flex;
     text-align: center;
 }
+
+.personnage{
+    padding-top: 50px;
+    text-align: center;
+}
+
+.div-legende{
+    margin: 50px 200px;
+}
+
+
+.legende-square{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.containeur{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
