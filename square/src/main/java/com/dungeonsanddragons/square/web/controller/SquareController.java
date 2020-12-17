@@ -17,20 +17,20 @@ public class SquareController {
     private SquareRepository squareRepository;
 
     @ApiOperation(value="Display full square list in json format.")
-    @RequestMapping(value = "/Squares", method = RequestMethod.GET)
+    @RequestMapping(value = "/Squares", method = RequestMethod.GET, produces = "application/json")
     public List<Square> displaySquareList() {
         return squareRepository.findAll();
     }
 
     @ApiOperation(value="Retrieve and display in json format one square based on his id.")
-    @RequestMapping(value = "/Squares/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/Squares/{id}", method = RequestMethod.GET, produces = "application/json")
     public Square displaySquare(@PathVariable int id) {
         return squareRepository.findById(id);
     }
 
-//    @ApiOperation(value="Edit a square with new json data if id already exist.")
-//    @PutMapping(value = "/Squares")
-//    public void updateSquare(@RequestBody Square newSquare) {
-//        squareRepository.save(newSquare);
-//    }
+    @ApiOperation(value="Edit a square with new json data if id already exist.")
+    @PutMapping(value = "/Squares", consumes = "application/json", produces = "application/json")
+    public void updateSquare(@RequestBody Square newSquare) {
+        squareRepository.save(newSquare);
+    }
 }
