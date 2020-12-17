@@ -10,6 +10,29 @@
           crossorigin="anonymous">
 </head>
 <body>
-<h1>This is a fucking test</h1>
+<h1 class="text-plateau">Plateau de jeu</h1>
+
+<div class="table-style">
+    <table border="1">
+        <tbody class="grid">
+        <tr>
+            <td th:each="square : ${squares}" class="square"
+                th:switch="${square.occupant_type}">
+                <div th:case="Eclair" style="background-color: aquamarine"><span>&nbsp;&nbsp;</span></div>
+                <div th:case="Massue" style="background-color: saddlebrown"><span>&nbsp;&nbsp;</span></div>
+                <div th:case="Gobelin" style="background-color: rosybrown"><span>&nbsp;&nbsp;</span></div>
+                <div th:case="StandardPotion" style="background-color: blueviolet"><span>&nbsp;&nbsp;</span></div>
+                <div th:case="Empty" style="background-color: whitesmoke"><span>&nbsp;&nbsp;</span></div>
+                <div th:case="Epee" style="background-color: silver"><span>&nbsp;&nbsp;</span></div>
+                <div th:case="Sorcier" style="background-color: black"><span>&nbsp;&nbsp;</span></div>
+                <div th:case="BigPotion" style="background-color: purple"><span>&nbsp;&nbsp;</span></div>
+                <div th:case="Dragon" style="background-color: darkred"><span>&nbsp;&nbsp;</span></div>
+                <div th:case="Fire" style="background-color: orange"><span>&nbsp;&nbsp;</span></div>
+                <div th:case="*"></div>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
