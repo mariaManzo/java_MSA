@@ -73,6 +73,12 @@ table th, table td {
     text-align: center;
 }
 
+
+.launch_dice{
+    display:flex;
+    text-align: center;
+}
+
 .personnage{
     padding-top: 50px;
     text-align: center;
@@ -94,3 +100,4 @@ table th, table td {
     flex-direction: row;
     justify-content: center;
 }
+
