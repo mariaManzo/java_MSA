@@ -79,7 +79,7 @@
 </div>
 
     <div th:each="personnage : ${personnages}">
-        <div  class="div-personnage" th:if="${#lists.size(personnages)-1}==${personnage.id}">
+        <div  class="div-personnage" th:if="${#lists.size(personnages)}==${personnage.id}">
             <h2 style="padding-top: 80px; text-align: center;" >Votre personnage :</h2>
             <div style="text-align: center; padding-top: 10px;" th:utext="NOM +'   '+ ${personnage.name}"></div>
             <div style="text-align: center; padding-top: 5px;" th:utext="TYPE +'   '+ ${personnage.type}"></div>
