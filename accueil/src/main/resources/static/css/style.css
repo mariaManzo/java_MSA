@@ -72,3 +72,25 @@ table th, table td {
 .text-plateau{
     text-align: center;
 }
+
+.personnage{
+    padding-top: 50px;
+    text-align: center;
+}
+
+.div-legende{
+    margin: 50px 200px;
+}
+
+
+.legende-square{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.containeur{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

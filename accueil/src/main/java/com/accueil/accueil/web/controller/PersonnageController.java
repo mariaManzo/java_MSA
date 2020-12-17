@@ -78,6 +78,8 @@ public class PersonnageController
     public String squareList(Model model) {
         Square[] squares = restTemplate.getForObject(uriSquare, Square[].class);
         model.addAttribute("squares", squares);
+        Personnage[] personnages = restTemplate.getForObject(uriPlayer+"all", Personnage[].class);
+        model.addAttribute("personnages", personnages);
         return "board";
     }
 
