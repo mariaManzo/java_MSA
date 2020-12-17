@@ -1,6 +1,8 @@
 package com.dungeonsanddragons.master_logic;
 
 import com.dungeonsanddragons.master_logic.web.controller.PlayerController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -25,4 +27,8 @@ public class MasterLogicApplication {
 		return builder.build();
 	}
 
+
+	public static Logger logger(Object o){
+		return LoggerFactory.getLogger(o.getClass());
+	}
 }

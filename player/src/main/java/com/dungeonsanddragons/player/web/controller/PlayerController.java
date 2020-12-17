@@ -44,7 +44,7 @@ public class PlayerController {
        return personnage;
     }
 
-    @PutMapping(path="/update")
+    @PatchMapping(path="/update", produces="application/json")
     public Player updatePersonnage(@RequestBody Player personnage) {
         return playerRepository.save(personnage);
     }
