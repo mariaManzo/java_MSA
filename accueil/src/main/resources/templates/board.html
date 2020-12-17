@@ -79,7 +79,7 @@
 </div>
 
     <div th:each="personnage : ${personnages}">
-        <div  class="div-personnage" th:if="${#lists.size(personnages)-1}==${personnage.id}">
+        <div  class="div-personnage" th:if="${#lists.size(personnages)}==${personnage.id}">
             <h2 style="padding-top: 80px; text-align: center;" >Votre personnage :</h2>
             <div style="text-align: center; padding-top: 10px;" th:utext="NOM +'   '+ ${personnage.name}"></div>
             <div style="text-align: center; padding-top: 5px;" th:utext="TYPE +'   '+ ${personnage.type}"></div>
@@ -87,6 +87,8 @@
             <div style="text-align: center; padding-top: 5px;" th:utext="POTION +'   '+ ${personnage.potion}"></div>
             <div style="text-align: center; padding-top: 5px;" th:utext="POINTS_DE_VIE +'   '+ ${personnage.life_points}"></div>
             <div style="text-align: center; padding-top: 5px;" th:utext="POINTS_D_ATTAQUE +'   '+ ${personnage.attack_points}"></div>
+            <div style="text-align: center; padding-top: 5px;" th:utext="CASE_COURANTE +'   '+ ${personnage.current_square_id}"></div>
+
         </div>
     </div>
 </div>
