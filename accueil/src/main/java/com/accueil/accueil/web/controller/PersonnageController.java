@@ -2,6 +2,7 @@ package com.accueil.accueil.web.controller;
 
 import com.accueil.accueil.form.PersonnageForm;
 import com.accueil.accueil.model.Personnage;
+import com.accueil.accueil.model.Square;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.List;
 
 
 @Controller
@@ -17,9 +19,6 @@ public class PersonnageController
     @Autowired
     private RestTemplate restTemplate;
 
-    // Membres
-    //private static ArrayList<Personnage> listPersonnages = new ArrayList<Personnage>();
-
 
     // Injectez (inject) via application.properties.
     @Value("${welcome.message}")
@@ -27,6 +26,9 @@ public class PersonnageController
 
     @Value("${uriPlayer}")
     private String uriPlayer;
+
+    @Value("${uriSquare}")
+    private String uriSquare;
 
     @Value("${error.message}")
     private String errorMessage;
@@ -63,8 +65,7 @@ public class PersonnageController
                 && type != null && type.length() > 0) {
 
             restTemplate.postForObject(uriPlayer+"add", personnageForm, Personnage.class);
-
-            return "board";
+            return "redirect:/Squares";
         }
 
         model.addAttribute("errorMessage", errorMessage);
@@ -73,6 +74,12 @@ public class PersonnageController
 
     }
 
+    @GetMapping(value = { "/Squares" })
+    public String squareList(Model model) {
+        Square[] squares = restTemplate.getForObject(uriSquare, Square[].class);
+        model.addAttribute("squares", squares);
+        return "board";
+    }
 
 }
 
