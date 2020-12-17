@@ -9,6 +9,7 @@ public class PersonnageForm {
     protected String potion;
     protected int attack_points;
     protected int life_points;
+    protected int current_square_id;
 
 
     public String getWeapon() {
@@ -67,4 +68,11 @@ public class PersonnageForm {
         this.type = type;
     }
 
+    public int getCurrent_square_id() {
+        return current_square_id;
+    }
+
+    public void setCurrent_square_id(int current_square_id) {
+        this.current_square_id = current_square_id;
+    }
 }

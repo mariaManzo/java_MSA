@@ -45,9 +45,8 @@ public class PlayerController {
     }
 
     @PutMapping(path="/update")
-    public String updatePersonnage(@RequestBody Player personnage) {
-        playerRepository.save(personnage);
-        return "Updated";
+    public Player updatePersonnage(@RequestBody Player personnage) {
+        return playerRepository.save(personnage);
     }
 
     @DeleteMapping (path="/delete/{id}")
