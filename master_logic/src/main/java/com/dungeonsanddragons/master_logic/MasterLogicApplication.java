@@ -27,7 +27,6 @@ public class MasterLogicApplication {
 		return builder.build();
 	}
 
-
 	public static Logger logger(Object o){
 		return LoggerFactory.getLogger(o.getClass());
 	}
