@@ -6,9 +6,32 @@ h2 {
     color:#FF0000;
 }
 
+.feu_et_sang {
+    background:
+    url("https://thumbor.sd-cdn.fr/loR4hFERGO8LhtjTy2K6Mbigk1k=/fit-in/1000x757/cdn.sd-cdn.fr/comiga/2019/07/donjons-dragons-film-spider-man-e1564580792770.jpg") no-repeat center center fixed;
+    background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+.feu_et_sang_dark {
+    background:
+    linear-gradient(
+              rgba(0, 0, 0, 0.5),
+              rgba(0, 0, 0, 0.5)
+            ),
+    url("https://thumbor.sd-cdn.fr/loR4hFERGO8LhtjTy2K6Mbigk1k=/fit-in/1000x757/cdn.sd-cdn.fr/comiga/2019/07/donjons-dragons-film-spider-man-e1564580792770.jpg") no-repeat center center fixed;
+    background-size: cover;
+  height: 100%;
+  overflow: hidden;
+}
+
+.font-white {
+color:white !important;
+}
 table {
     border-collapse: collapse;
-    margin: 70px 20px 20px 150px;
+    margin-top:50px;
+    margin-bottom:50px;
 }
 
 table th, table td {

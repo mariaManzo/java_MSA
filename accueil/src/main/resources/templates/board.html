@@ -9,17 +9,21 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
 </head>
-<body>
-<h1 class="text-plateau">Plateau de jeu</h1>
+<body class="feu_et_sang_dark font-white ">
+<h1 class="text-plateau font-white">Plateau de jeu</h1>
 
 <div class="table-style">
-    <div th:if="${personnage.current_square_id==0}">
-        <img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-37-512.png"
-             width="20px" height="auto" /></span></div>
-    <table border="1">
+
+    <table border="1" class="mx-auto">
         <tbody class="grid">
         <tr>
-
+            <td>
+                <div style="background-color: whitesmoke">
+                    <span th:if="${personnage.current_square_id==0}">
+                    <img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-37-512.png"
+                         width="20px" height="auto" /></span>
+                </div>
+            </td>
             <td th:each="square : ${squares}" class="square"
 
                 th:switch="${square.occupant_type}">
@@ -62,13 +66,16 @@
         </tbody>
     </table>
 </div>
+<div class="d-flex">
+    <div class="mx-auto">
+        <a class="btn btn-secondary mb-2" th:href="@{/launchDices}">Lancer les dés</a>
 
-<div>
-    <a class="btn btn-secondary" th:href="@{/launchDices}">Lancer les dés</a>
-    <p>Résultat des dés: </p>
-    <p th:utext="${dices}"></p>
+        <p>Résultat des dés: </p>
+        <p th:utext="${dices}"></p>
 
+    </div>
 </div>
+
 
 <div class="containeur">
 
