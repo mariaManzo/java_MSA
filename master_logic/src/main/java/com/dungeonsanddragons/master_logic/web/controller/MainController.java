@@ -14,19 +14,19 @@ public class MainController {
     private final PlayerController playerController = new PlayerController();
 
     @RequestMapping(value = {"/round"}, method = RequestMethod.GET)
-    public int round(@RequestParam int player_id) {
+    public Integer round(@RequestParam int player_id) {
 //        lance les dés
-        int dices = this.launchDice();
+        Integer dices = this.launchDice();
 //        avance la position du personnage (case_courante_id) avec le résultat des dés
         this.step_forward(player_id, dices);
         return dices;
     }
 
-    public int launchDice() {
+    public Integer launchDice() {
         return 1 + (int) (Math.random() * 12);
     }
 
-    public void step_forward(int player_id, int dices) {
+    public void step_forward(int player_id, Integer dices) {
 //        Recupere perso
         Player player = playerController.getPlayer(player_id);
 //        Modifie attribut case_courante_id += dices
