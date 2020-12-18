@@ -101,3 +101,8 @@ table th, table td {
     justify-content: center;
 }
 
+div.pawn {
+    width:20px;
+    height:auto;
+    border: solid black 5px;
+}
