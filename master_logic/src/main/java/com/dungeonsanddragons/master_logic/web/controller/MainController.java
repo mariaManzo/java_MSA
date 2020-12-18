@@ -30,8 +30,11 @@ public class MainController {
 //        Recupere perso
         Player player = playerController.getPlayer(player_id);
 //        Modifie attribut case_courante_id += dices
-        player.setCurrent_square_id(player.getCurrent_square_id() + dices);
-//        update (modifie et recupere perso)
-        playerController.updatePlayer(player);
+        int new_position=player.getCurrent_square_id()+dices;
+        if(new_position<=64){
+            player.setCurrent_square_id(new_position);
+            //        update (modifie et recupere perso)
+            playerController.updatePlayer(player);
+        }
     }
 }

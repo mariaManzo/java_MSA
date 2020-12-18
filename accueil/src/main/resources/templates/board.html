@@ -13,60 +13,58 @@
 <h1 class="text-plateau">Plateau de jeu</h1>
 
 <div class="table-style">
+    <div th:if="${personnage.current_square_id==0}">
+        <img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-37-512.png"
+             width="20px" height="auto" /></span></div>
     <table border="1">
         <tbody class="grid">
         <tr>
+
             <td th:each="square : ${squares}" class="square"
+
                 th:switch="${square.occupant_type}">
-                <div th:case="Eclair" style="background-color: aquamarine"><span>&nbsp;&nbsp;</span></div>
-                <div th:case="Massue" style="background-color: saddlebrown"><span>&nbsp;&nbsp;</span></div>
-                <div th:case="Gobelin" style="background-color: rosybrown"><span>&nbsp;&nbsp;</span></div>
-                <div th:case="StandardPotion" style="background-color: blueviolet"><span>&nbsp;&nbsp;</span></div>
-                <div th:case="Empty" style="background-color: whitesmoke"><span>&nbsp;&nbsp;</span></div>
-                <div th:case="Epee" style="background-color: silver"><span>&nbsp;&nbsp;</span></div>
-                <div th:case="Sorcier" style="background-color: black"><span>&nbsp;&nbsp;</span></div>
-                <div th:case="BigPotion" style="background-color: purple"><span>&nbsp;&nbsp;</span></div>
-                <div th:case="Dragon" style="background-color: darkred"><span>&nbsp;&nbsp;</span></div>
-                <div th:case="Fire" style="background-color: orange"><span>&nbsp;&nbsp;</span></div>
+                <div th:case="Eclair" style="background-color: darkgreen"><span th:if="${square.id==personnage.current_square_id}">
+                    <img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-37-512.png"
+                         width="20px" height="auto" /></span>
+                </div>
+                <div th:case="Massue" style="background-color: saddlebrown"><span th:if="${square.id==personnage.current_square_id}">
+                    <img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-37-512.png"
+                         width="20px" height="auto" /></span></div>
+                <div th:case="Gobelin" style="background-color: rosybrown"><span th:if="${square.id==personnage.current_square_id}">
+                    <img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-37-512.png"
+                         width="20px" height="auto" /></span></div>
+                <div th:case="StandardPotion" style="background-color: blueviolet"><span th:if="${square.id==personnage.current_square_id}">
+                    <img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-37-512.png"
+                         width="20px" height="auto" /></span></div>
+                <div th:case="Empty" style="background-color: whitesmoke"><span th:if="${square.id==personnage.current_square_id}">
+                    <img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-37-512.png"
+                         width="20px" height="auto" /></span></div>
+                <div th:case="Epee" style="background-color: silver"><span th:if="${square.id==personnage.current_square_id}">
+                    <img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-37-512.png"
+                         width="20px" height="auto" /></span></div>
+                <div th:case="Sorcier" style="background-color: black"><span th:if="${square.id==personnage.current_square_id}">
+                    <img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-37-512.png"
+                         width="20px" height="auto" /></span></div>
+                <div th:case="BigPotion" style="background-color: purple"><span th:if="${square.id==personnage.current_square_id}">
+                    <img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-37-512.png"
+                         width="20px" height="auto" /></span></div>
+                <div th:case="Dragon" style="background-color: darkred"><span th:if="${square.id==personnage.current_square_id}">
+                    <img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-37-512.png"
+                         width="20px" height="auto" /></span></div>
+                <div th:case="Fire" style="background-color: orange"><span th:if="${square.id==personnage.current_square_id}">
+                    <img src="https://cdn4.iconfinder.com/data/icons/famous-characters-add-on-vol-1-flat/48/Famous_Character_-_Add_On_1-37-512.png"
+                         width="20px" height="auto" /></span></div>
                 <div th:case="*"></div>
+
         </tr>
 
-<!--        <input type="button" value="Lancer dés" id="buttonDice"/>-->
-
-
-<!--        <script>-->
-<!--            let btn = document.getElementById('buttonDice');-->
-<!--            btn.addEventListener('click', lancerDes);-->
-
-<!--            function lancerDes() {-->
-<!--                // On renvoie un entier aléatoire entre une valeur min (incluse)-->
-<!--                // et une valeur max (exclue).-->
-<!--                // Attention : si on utilisait Math.round(), on aurait une distribution-->
-<!--                // non uniforme !-->
-<!--                let min = Math.ceil(1);-->
-<!--                let max = Math.floor(13);-->
-<!--                let resultat = Math.floor(Math.random() * (max - min)) + min;-->
-<!--                //console.log('On a tire' +resultat);-->
-
-<!--                let affichageResultat = document.getElementById("affichageResultat");-->
-<!--                if (affichageResultat == null)-->
-<!--                {-->
-<!--                    affichageResultat = document.createElement("P");-->
-<!--                    affichageResultat.id = "affichageResultat" ;-->
-<!--                    document.body.appendChild(affichageResultat);-->
-<!--                }-->
-<!--                affichageResultat.innerText = "On a tiré " + resultat ;-->
-<!--            }-->
-<!--        </script>-->
 
         </tbody>
     </table>
 </div>
 
 <div>
-    <a class="link" th:href="@{/launchDices}">Lancer les dés</a>
-<!--    <input type="button" value="Lancer dés" th:onclick="MainController.launchDices()"/>-->
-<!--    <button type="button" value="Lancer dés" th:onclick="|window.location.href='/launchDices'|">Lancer les dés</button>-->
+    <a class="btn btn-secondary" th:href="@{/launchDices}">Lancer les dés</a>
     <p>Résultat des dés: </p>
     <p th:utext="${dices}"></p>
 
@@ -102,5 +100,7 @@
         </div>
     </div>
 </div>
+
+
 </body>
 </html>
