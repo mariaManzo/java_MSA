@@ -19,7 +19,6 @@ public class PersonnageController
     @Autowired
     private RestTemplate restTemplate;
 
-
     // Injectez (inject) via application.properties.
     @Value("${welcome.message}")
     private String message;
@@ -70,8 +69,6 @@ public class PersonnageController
 
         model.addAttribute("errorMessage", errorMessage);
         return "addPerson";
-
-
     }
 
     @GetMapping(value = { "/Squares" })
@@ -82,6 +79,5 @@ public class PersonnageController
         model.addAttribute("personnages", personnages);
         return "board";
     }
-
 }
 
