@@ -19,7 +19,7 @@ public class PlayerController {
         return restTemplate.getForObject(resourceUrlListPerso + id, Player.class);
     }
 
-    public Player updatePlayer(Player player) {
-        return restTemplate.patchForObject(resourceUrlListPerso + "update", player, Player.class);
+    public void updatePlayer(Player player) {
+        restTemplate.patchForObject(resourceUrlListPerso + "update", player, Player.class);
     }
 }

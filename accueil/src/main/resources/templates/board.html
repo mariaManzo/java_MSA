@@ -31,37 +31,47 @@
                 <div th:case="*"></div>
         </tr>
 
-        <input type="button" value="Lancer dés" id="buttonDice"/>
+<!--        <input type="button" value="Lancer dés" id="buttonDice"/>-->
 
 
-        <script>
-            let btn = document.getElementById('buttonDice');
-            btn.addEventListener('click', lancerDes);
+<!--        <script>-->
+<!--            let btn = document.getElementById('buttonDice');-->
+<!--            btn.addEventListener('click', lancerDes);-->
 
-            function lancerDes() {
-                // On renvoie un entier aléatoire entre une valeur min (incluse)
-                // et une valeur max (exclue).
-                // Attention : si on utilisait Math.round(), on aurait une distribution
-                // non uniforme !
-                let min = Math.ceil(1);
-                let max = Math.floor(13);
-                let resultat = Math.floor(Math.random() * (max - min)) + min;
-                //console.log('On a tire' +resultat);
+<!--            function lancerDes() {-->
+<!--                // On renvoie un entier aléatoire entre une valeur min (incluse)-->
+<!--                // et une valeur max (exclue).-->
+<!--                // Attention : si on utilisait Math.round(), on aurait une distribution-->
+<!--                // non uniforme !-->
+<!--                let min = Math.ceil(1);-->
+<!--                let max = Math.floor(13);-->
+<!--                let resultat = Math.floor(Math.random() * (max - min)) + min;-->
+<!--                //console.log('On a tire' +resultat);-->
 
-                let affichageResultat = document.getElementById("affichageResultat");
-                if (affichageResultat == null)
-                {
-                    affichageResultat = document.createElement("P");
-                    affichageResultat.id = "affichageResultat" ;
-                    document.body.appendChild(affichageResultat);
-                }
-                affichageResultat.innerText = "On a tiré " + resultat ;
-            }
-        </script>
+<!--                let affichageResultat = document.getElementById("affichageResultat");-->
+<!--                if (affichageResultat == null)-->
+<!--                {-->
+<!--                    affichageResultat = document.createElement("P");-->
+<!--                    affichageResultat.id = "affichageResultat" ;-->
+<!--                    document.body.appendChild(affichageResultat);-->
+<!--                }-->
+<!--                affichageResultat.innerText = "On a tiré " + resultat ;-->
+<!--            }-->
+<!--        </script>-->
 
         </tbody>
     </table>
 </div>
+
+<div>
+    <a class="link" th:href="@{/launchDices}">Lancer les dés</a>
+<!--    <input type="button" value="Lancer dés" th:onclick="MainController.launchDices()"/>-->
+<!--    <button type="button" value="Lancer dés" th:onclick="|window.location.href='/launchDices'|">Lancer les dés</button>-->
+    <p>Résultat des dés: </p>
+    <p th:utext="${dices}"></p>
+
+</div>
+
 <div class="containeur">
 
     <div class="div-legende">
@@ -78,8 +88,8 @@
     <div th:class="legende-square" style="background-color: orange; margin-left: 30px; height: 30px;width: 30px;"><span>&nbsp;&nbsp;</span><div style="margin-left: 30px" th:utext="Feu"></div></div>
 </div>
 
-    <div th:each="personnage : ${personnages}">
-        <div  class="div-personnage" th:if="${#lists.size(personnages)}==${personnage.id}">
+    <div >
+        <div  class="div-personnage" >
             <h2 style="padding-top: 80px; text-align: center;" >Votre personnage :</h2>
             <div style="text-align: center; padding-top: 10px;" th:utext="NOM +'   '+ ${personnage.name}"></div>
             <div style="text-align: center; padding-top: 5px;" th:utext="TYPE +'   '+ ${personnage.type}"></div>

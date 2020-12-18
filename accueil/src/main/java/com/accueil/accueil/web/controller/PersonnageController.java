@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Controller
@@ -18,7 +19,6 @@ public class PersonnageController
 {
     @Autowired
     private RestTemplate restTemplate;
-
 
     // Injectez (inject) via application.properties.
     @Value("${welcome.message}")
@@ -70,18 +70,20 @@ public class PersonnageController
 
         model.addAttribute("errorMessage", errorMessage);
         return "addPerson";
-
-
     }
 
     @GetMapping(value = { "/Squares" })
-    public String squareList(Model model) {
+    public String squareList(Model model, Integer dices) {
         Square[] squares = restTemplate.getForObject(uriSquare, Square[].class);
         model.addAttribute("squares", squares);
         Personnage[] personnages = restTemplate.getForObject(uriPlayer+"all", Personnage[].class);
-        model.addAttribute("personnages", personnages);
+        int player_id=personnages[personnages.length-1].getId();
+        Personnage personnage = restTemplate.getForObject(uriPlayer+player_id, Personnage.class);
+       if(dices!=null) {
+           model.addAttribute("dices", dices);
+       }
+        model.addAttribute("personnage", personnage);
         return "board";
     }
-
 }
 
